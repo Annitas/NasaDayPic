@@ -7,11 +7,14 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+final class APODViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .red
+        
+        view.backgroundColor = .systemBackground
+        title = "APOD"
+      
         // Do any additional setup after loading the view.
     }
 
