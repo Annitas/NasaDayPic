@@ -22,7 +22,7 @@ final class TabViewController: UITabBarController {
         let nav1 = UINavigationController(rootViewController: apodVC)
         let nav2 = UINavigationController(rootViewController: searchVC)
         
-        nav1.tabBarItem = UITabBarItem(title: "Astronomy Picture Of a Day", image: UIImage(systemName: "person.fill"), tag: 1)
+        nav1.tabBarItem = UITabBarItem(title: "Astronomy Picture Of a Day", image: UIImage(systemName: "star"), tag: 1)
         nav2.tabBarItem = UITabBarItem(title: "Search", image: UIImage(systemName: "magnifyingglass"), tag: 2)
         
         setViewControllers([nav1, nav2], animated: true)
