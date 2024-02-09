@@ -15,6 +15,9 @@ final class APODViewController: UIViewController {
         view.backgroundColor = .systemBackground
         title = "APOD"
       
+        let request = Request()
+        
+        print(request.url)
         // Do any additional setup after loading the view.
     }
 

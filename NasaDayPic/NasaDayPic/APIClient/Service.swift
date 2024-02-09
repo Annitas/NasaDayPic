@@ -12,7 +12,7 @@ final class Service {
     
     private init() {}
     
-    public func execute(_ request: Request, completion: @escaping () -> Void) {
+    public func execute(_ request: Request, completion: @escaping (Result<String, Error>) -> Void) {
         
     }
 }
