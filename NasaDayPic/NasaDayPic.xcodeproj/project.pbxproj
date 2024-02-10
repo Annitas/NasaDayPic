@@ -19,6 +19,7 @@
 		759C55C12B76336F007C5024 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759C55C02B76336F007C5024 /* Service.swift */; };
 		759C55C32B763385007C5024 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759C55C22B763385007C5024 /* Request.swift */; };
 		759C562A2B77D33C007C5024 /* APODListViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759C56292B77D33C007C5024 /* APODListViewViewModel.swift */; };
+		759C562C2B77D5CF007C5024 /* APODListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759C562B2B77D5CF007C5024 /* APODListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		759C55C02B76336F007C5024 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		759C55C22B763385007C5024 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		759C56292B77D33C007C5024 /* APODListViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APODListViewViewModel.swift; sourceTree = "<group>"; };
+		759C562B2B77D5CF007C5024 /* APODListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APODListView.swift; sourceTree = "<group>"; };
 		A0ED6D37192B8DC53CF43B5F /* Pods_NasaDayPic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NasaDayPic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5999C2FCE24A091944FB5DA /* Pods-NasaDayPic.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NasaDayPic.release.xcconfig"; path = "Target Support Files/Pods-NasaDayPic/Pods-NasaDayPic.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -104,6 +106,7 @@
 		759C55B42B76157C007C5024 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				759C562B2B77D5CF007C5024 /* APODListView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -282,6 +285,7 @@
 				759C55C12B76336F007C5024 /* Service.swift in Sources */,
 				759C55A42B7613AF007C5024 /* APODViewController.swift in Sources */,
 				759C55A02B7613AF007C5024 /* AppDelegate.swift in Sources */,
+				759C562C2B77D5CF007C5024 /* APODListView.swift in Sources */,
 				759C55A22B7613AF007C5024 /* SceneDelegate.swift in Sources */,
 				759C55BD2B76272A007C5024 /* TabViewController.swift in Sources */,
 				759C55BB2B762708007C5024 /* APODModel.swift in Sources */,

@@ -6,8 +6,9 @@
 //
 
 import Foundation
+import UIKit
 
-struct APODListViewViewModel {
+final class APODListViewViewModel: NSObject {
     func fetchAPOD() {
         let request = Request(pathComponents: ["2"])
 
@@ -19,5 +20,17 @@ struct APODListViewViewModel {
                 print(String(describing: error))
             }
         }
+    }
+}
+
+extension APODListViewViewModel: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
+        cell.backgroundColor = .yellow
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 20
     }
 }
