@@ -18,11 +18,12 @@ final class APODViewController: UIViewController {
         
         view.backgroundColor = .systemBackground
         title = "APOD"
-        view.addSubview(apodListView)
-        setupConstraints()
+        
+        setupView()
     }
 
-    private func setupConstraints() {
+    private func setupView() {
+        view.addSubview(apodListView)
         apodListView.snp.makeConstraints { make in
             make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top)
             make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom)
