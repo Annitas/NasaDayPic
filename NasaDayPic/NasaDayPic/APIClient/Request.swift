@@ -53,3 +53,7 @@ final class Request {
         self.pathComponents = pathComponents
     }
 }
+
+extension Request {
+    static let listAPODRequest = Request(pathComponents: ["d"])
+}

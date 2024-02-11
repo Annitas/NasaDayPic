@@ -27,21 +27,19 @@ final class APODListView: UIView {
         collectionView.isHidden = true
         collectionView.alpha = 0
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.register(UICollectionViewCell.self,
-                                forCellWithReuseIdentifier: "cell")
+        collectionView.register(APODCollectionViewCell.self,
+                                forCellWithReuseIdentifier: APODCollectionViewCell.cellIdentifier)
         return collectionView
     }()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
         translatesAutoresizingMaskIntoConstraints = false
-        backgroundColor = .brown
-        
+        viewModel.fetchAPOD()
+        viewModel.delegate = self
         addSubview(spinner)
         addSubview(collectionView)
-        
         addConstraints()
-//        viewModel.fetchAPOD()
         spinner.startAnimating()
         setupCollectionView()
     }
@@ -69,12 +67,17 @@ final class APODListView: UIView {
     private func setupCollectionView() {
         collectionView.dataSource = viewModel
         collectionView.delegate = viewModel
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
-            self.spinner.stopAnimating()
-            self.collectionView.isHidden = false
-            UIView.animate(withDuration: 0.4) {
-                self.collectionView.alpha = 1
-            }
-            })
+    }
+}
+
+extension APODListView: APODListViewViewModelDelegate {
+    func didLoadInitialAPODs() {
+        spinner.stopAnimating()
+        collectionView.isHidden = false
+        collectionView.reloadData()
+        UIView.animate(withDuration: 0.4) {
+            self.collectionView.alpha = 1
+        }
+
     }
 }

@@ -8,14 +8,39 @@
 import Foundation
 import UIKit
 
-final class APODListViewViewModel: NSObject {
-    func fetchAPOD() {
-        let request = Request(pathComponents: ["2"])
+protocol APODListViewViewModelDelegate: AnyObject {
+    func didLoadInitialAPODs()
+}
 
-        Service.shared.execute(request, expecting: [APODModel].self) { result in
+final class APODListViewViewModel: NSObject {
+    public weak var delegate: APODListViewViewModelDelegate?
+    
+    private var apods: [APODModel] = [] {
+        didSet {
+            for apod in apods {
+                let viewModel = APODCollectionViewCellViewModel(title: apod.title, 
+                                                                imageURL: URL(string: apod.url))
+                print(viewModel.title)
+                cellViewModels.append(viewModel)
+            }
+//            cellViewModels = apods.map { apod in
+//                print(apod.title)
+//                return APODCollectionViewCellViewModel(title: apod.title, imageURL: URL(string: apod.url))
+//            }
+
+        }
+    }
+    
+    private var cellViewModels: [APODCollectionViewCellViewModel] = []
+
+    public func fetchAPOD() {
+        Service.shared.execute(.listAPODRequest, expecting: [APODModel].self) { [weak self] result in
             switch result {
-            case .success(let model):
-                print(String(describing: model[0]))
+            case .success(let responseModel):
+                self?.apods = responseModel
+                DispatchQueue.main.async {
+                    self?.delegate?.didLoadInitialAPODs()
+                }
             case .failure(let error):
                 print(String(describing: error))
             }
@@ -23,16 +48,18 @@ final class APODListViewViewModel: NSObject {
     }
 }
 
+
 extension APODListViewViewModel: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
-        cell.backgroundColor = .yellow
-        cell.layer.cornerRadius = 10
-        return cell
-    }
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 20
+        print(cellViewModels.count)
+        return cellViewModels.count
+    }
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: APODCollectionViewCell.cellIdentifier, for: indexPath) as? APODCollectionViewCell else {
+            fatalError("Unsupported cell")
+        }
+        cell.configure(with: cellViewModels[indexPath.row])
+        return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
