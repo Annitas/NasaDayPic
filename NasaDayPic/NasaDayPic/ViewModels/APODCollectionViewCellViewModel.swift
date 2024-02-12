@@ -8,9 +8,20 @@
 import Foundation
 import Alamofire
 
-final class APODCollectionViewCellViewModel {
+// TODO: Use Kingfisher
+
+final class APODCollectionViewCellViewModel: Hashable, Equatable {
     public let title: String
     private let imageURL: URL?
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(title)
+        hasher.combine(imageURL)
+    }
+    
+    static func == (lhs: APODCollectionViewCellViewModel, rhs: APODCollectionViewCellViewModel) -> Bool {
+        return lhs.hashValue == rhs.hashValue
+    }
     
     init(title: String, imageURL: URL?){
         self.title = title
