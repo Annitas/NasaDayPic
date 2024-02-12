@@ -16,6 +16,7 @@ final class APODCollectionViewCell: UICollectionViewCell {
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.layer.cornerRadius = 8
         return imageView
     }()
     private let titleLabel: UILabel = {
@@ -32,7 +33,6 @@ final class APODCollectionViewCell: UICollectionViewCell {
         contentView.addSubview(imageView)
         contentView.addSubview(titleLabel)
         addConstraints()
-//        setupLayer()
     }
     
     private func setupLayer() {
@@ -56,8 +56,11 @@ final class APODCollectionViewCell: UICollectionViewCell {
             make.left.equalTo(contentView.snp.left)
             make.right.equalTo(contentView.snp.right)
         }
-//        imageView.backgroundColor = .blue
-//        titleLabel.backgroundColor = .green
+    }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        setupLayer()
     }
     
     override func prepareForReuse() {

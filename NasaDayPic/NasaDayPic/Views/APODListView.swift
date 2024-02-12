@@ -8,9 +8,15 @@
 import UIKit
 import SnapKit
 
+protocol APODListViewDelegate: AnyObject {
+    func apodListView( _ apodListView: APODListView, didSelectAPOD: APODModel)
+}
+
 final class APODListView: UIView {
     
     private let viewModel = APODListViewViewModel()
+    
+    public weak var delegate: APODListViewDelegate?
     
     private let spinner: UIActivityIndicatorView = {
         let spinner = UIActivityIndicatorView(style: .large)
@@ -22,13 +28,16 @@ final class APODListView: UIView {
     private let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
-        layout.sectionInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 10, bottom: 10, right: 10)
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.isHidden = true
         collectionView.alpha = 0
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.register(APODCollectionViewCell.self,
                                 forCellWithReuseIdentifier: APODCollectionViewCell.cellIdentifier)
+        collectionView.register(FooterLoadingCollectionReusableView.self, 
+                                forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter,
+                                withReuseIdentifier: FooterLoadingCollectionReusableView.identifier)
         return collectionView
     }()
 
@@ -71,6 +80,10 @@ final class APODListView: UIView {
 }
 
 extension APODListView: APODListViewViewModelDelegate {
+    func didSelectAPOD(_ apod: APODModel) {
+        delegate?.apodListView(self, didSelectAPOD: apod)
+    }
+    
     func didLoadInitialAPODs() {
         spinner.stopAnimating()
         collectionView.isHidden = false

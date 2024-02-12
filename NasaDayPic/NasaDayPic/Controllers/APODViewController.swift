@@ -9,8 +9,7 @@ import UIKit
 //import Alamofire
 import SnapKit
 
-final class APODViewController: UIViewController {
-    
+final class APODViewController: UIViewController, APODListViewDelegate {
     private let apodListView = APODListView()
 
     override func viewDidLoad() {
@@ -23,6 +22,7 @@ final class APODViewController: UIViewController {
     }
 
     private func setupView() {
+        apodListView.delegate = self
         view.addSubview(apodListView)
         apodListView.snp.makeConstraints { make in
             make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top)
@@ -32,5 +32,11 @@ final class APODViewController: UIViewController {
         }
     }
 
+    // MARK: Open detain controller
+    func apodListView(_ apodListView: APODListView, didSelectAPOD apod: APODModel) {
+        let viewModel = APODDetailViewViewModel(apod: apod)
+        let detailVC = APODDetailViewController(viewModel: viewModel)
+        navigationController?.pushViewController(detailVC, animated: true)
+    }
 }
 
