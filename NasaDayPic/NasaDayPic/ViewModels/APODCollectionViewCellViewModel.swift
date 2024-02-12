@@ -14,14 +14,7 @@ final class APODCollectionViewCellViewModel: Hashable, Equatable {
     public let title: String
     private let imageURL: URL?
     
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(title)
-        hasher.combine(imageURL)
-    }
-    
-    static func == (lhs: APODCollectionViewCellViewModel, rhs: APODCollectionViewCellViewModel) -> Bool {
-        return lhs.hashValue == rhs.hashValue
-    }
+
     
     init(title: String, imageURL: URL?){
         self.title = title
@@ -38,14 +31,16 @@ final class APODCollectionViewCellViewModel: Hashable, Equatable {
             completion(.failure(URLError(.badURL)))
             return
         }
-        let request = URLRequest(url: url)
-        let task = URLSession.shared.dataTask(with: request) { data, _, error in
-            guard let data = data, error == nil else {
-                completion(.failure(URLError(.badServerResponse)))
-                return
-            }
-            completion(.success(data))
-        }
-        task.resume()
+        ImageLoader.shared.downLoadImage(url, completion: completion)
+    }
+    
+    // MARK: Hashable
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(title)
+        hasher.combine(imageURL)
+    }
+    
+    static func == (lhs: APODCollectionViewCellViewModel, rhs: APODCollectionViewCellViewModel) -> Bool {
+        return lhs.hashValue == rhs.hashValue
     }
 }

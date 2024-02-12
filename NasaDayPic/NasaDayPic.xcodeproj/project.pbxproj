@@ -27,6 +27,7 @@
 		759C56362B791AE6007C5024 /* APODDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759C56352B791AE6007C5024 /* APODDetailView.swift */; };
 		759C56382B791B54007C5024 /* APODDetailViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759C56372B791B54007C5024 /* APODDetailViewViewModel.swift */; };
 		759C563A2B7A2213007C5024 /* FooterLoadingCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759C56392B7A2213007C5024 /* FooterLoadingCollectionReusableView.swift */; };
+		759C563C2B7A3ED9007C5024 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759C563B2B7A3ED9007C5024 /* ImageLoader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		759C56352B791AE6007C5024 /* APODDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APODDetailView.swift; sourceTree = "<group>"; };
 		759C56372B791B54007C5024 /* APODDetailViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APODDetailViewViewModel.swift; sourceTree = "<group>"; };
 		759C56392B7A2213007C5024 /* FooterLoadingCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterLoadingCollectionReusableView.swift; sourceTree = "<group>"; };
+		759C563B2B7A3ED9007C5024 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		A0ED6D37192B8DC53CF43B5F /* Pods_NasaDayPic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NasaDayPic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5999C2FCE24A091944FB5DA /* Pods-NasaDayPic.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NasaDayPic.release.xcconfig"; path = "Target Support Files/Pods-NasaDayPic/Pods-NasaDayPic.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -151,6 +153,7 @@
 		759C55B72B7615B5007C5024 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				759C563B2B7A3ED9007C5024 /* ImageLoader.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -314,6 +317,7 @@
 				759C562C2B77D5CF007C5024 /* APODListView.swift in Sources */,
 				759C56322B78DE26007C5024 /* GetAllAPODsResponse.swift in Sources */,
 				759C55A22B7613AF007C5024 /* SceneDelegate.swift in Sources */,
+				759C563C2B7A3ED9007C5024 /* ImageLoader.swift in Sources */,
 				759C55BD2B76272A007C5024 /* TabViewController.swift in Sources */,
 				759C56362B791AE6007C5024 /* APODDetailView.swift in Sources */,
 				759C55BB2B762708007C5024 /* APODModel.swift in Sources */,
