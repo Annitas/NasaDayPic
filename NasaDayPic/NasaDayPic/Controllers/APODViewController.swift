@@ -32,7 +32,7 @@ final class APODViewController: UIViewController, APODListViewDelegate {
         }
     }
 
-    // MARK: Open detain controller
+    // MARK: Open detail controller
     func apodListView(_ apodListView: APODListView, didSelectAPOD apod: APODModel) {
         let viewModel = APODDetailViewViewModel(apod: apod)
         let detailVC = APODDetailViewController(viewModel: viewModel)

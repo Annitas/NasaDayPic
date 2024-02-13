@@ -68,7 +68,7 @@ final class APODCollectionViewCell: UICollectionViewCell {
         imageView.image = nil
         titleLabel.text = "LOL"
     }
-        
+    
     required init?(coder: NSCoder) {
         fatalError("Unsupported")
     }
@@ -77,15 +77,15 @@ final class APODCollectionViewCell: UICollectionViewCell {
         titleLabel.text = viewModel.title
         viewModel.fetchImage { [weak self] result in
             switch result {
-                case .success(let data):
-                    DispatchQueue.main.async {
-                        let image = UIImage(data: data)
-                        self?.imageView.image = image
-                    }
-                case .failure(let error):
-                    print(String(describing: error))
-                    break
+            case .success(let data):
+                DispatchQueue.main.async {
+                    let image = UIImage(data: data)
+                    self?.imageView.image = image
                 }
+            case .failure(let error):
+                print(String(describing: error))
+                break
             }
         }
+    }
 }

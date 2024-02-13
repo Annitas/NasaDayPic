@@ -32,7 +32,6 @@ final class Service {
         }
         
         let task = URLSession.shared.dataTask(with: urlRequest) { data, _, error in
-            print(urlRequest)
             guard let data = data, error == nil else {
                 completion(.failure(error ?? ServiceError.failedToGetData))
                 return

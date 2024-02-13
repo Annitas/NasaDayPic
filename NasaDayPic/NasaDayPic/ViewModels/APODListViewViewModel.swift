@@ -21,7 +21,8 @@ final class APODListViewViewModel: NSObject {
     private var apods: [APODModel] = [] {
         didSet {
             for apod in apods {
-                let viewModel = APODCollectionViewCellViewModel(title: apod.title, 
+                let viewModel = APODCollectionViewCellViewModel(title: apod.title,
+                                                                explanation: apod.explanation,
                                                                 imageURL: URL(string: apod.url))
                 if !cellViewModels.contains(viewModel) {
                     cellViewModels.append(viewModel)

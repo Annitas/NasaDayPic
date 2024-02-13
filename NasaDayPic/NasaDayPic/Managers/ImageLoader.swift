@@ -11,8 +11,7 @@ final class ImageLoader {
     static let shared = ImageLoader()
     private var imageDataCache = NSCache<NSString, NSData>()
     
-    private init() {
-    }
+    private init() {}
     
     public func downLoadImage(_ url: URL, completion: @escaping (Result<Data, Error>) -> Void) {
         let key = url.absoluteString as NSString

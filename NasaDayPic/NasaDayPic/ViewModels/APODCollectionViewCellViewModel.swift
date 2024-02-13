@@ -12,12 +12,14 @@ import Alamofire
 
 final class APODCollectionViewCellViewModel: Hashable, Equatable {
     public let title: String
+    public let explanation: String
     private let imageURL: URL?
     
 
     
-    init(title: String, imageURL: URL?){
+    init(title: String, explanation: String, imageURL: URL?){
         self.title = title
+        self.explanation = explanation
         self.imageURL = imageURL
     }
     
@@ -37,6 +39,7 @@ final class APODCollectionViewCellViewModel: Hashable, Equatable {
     // MARK: Hashable
     func hash(into hasher: inout Hasher) {
         hasher.combine(title)
+        hasher.combine(explanation)
         hasher.combine(imageURL)
     }
     
