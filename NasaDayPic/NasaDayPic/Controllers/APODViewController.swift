@@ -6,7 +6,6 @@
 //
 
 import UIKit
-//import Alamofire
 import SnapKit
 
 final class APODViewController: UIViewController, APODListViewDelegate {

@@ -10,39 +10,20 @@ import SnapKit
 
 final class APODDetailViewController: UIViewController {
     private let viewModel: APODDetailViewViewModel
-    private let titleLabel: UILabel = {
-        let label = UILabel()
-        label.textColor = .white
-        label.font = .systemFont(ofSize: 18, weight: .medium)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    private let explanationLabel: UILabel = {
-        let label = UILabel()
-        label.textColor = .label
-        label.numberOfLines = 0
-        label.font = .systemFont(ofSize: 18, weight: .medium)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    private var imageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFill
-        imageView.clipsToBounds = true
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.layer.cornerRadius = 8
-        return imageView
-    }()
-//    private let detailView = APODDetailView()
+    private let detailView: APODDetailView
+//    private let collectionView: UICollectionView = {
+//        let layout = UICollectionViewFlowLayout()
+//        layout.minimumLineSpacing = 0
+//        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+//        collectionView.translatesAutoresizingMaskIntoConstraints = false
+//        collectionView.backgroundColor = .systemPink
+//        return collectionView
+//    }()
     
     init(viewModel: APODDetailViewViewModel) {
         self.viewModel = viewModel
-        titleLabel.text = viewModel.apod.title
-        explanationLabel.text = viewModel.apod.explanation
+        self.detailView = APODDetailView(frame: .zero, viewModel: viewModel)
         super.init(nibName: nil, bundle: nil)
-        fetchAPODInfo(url: viewModel.apod.url)
-//        imageView = viewModel.
-        
     }
     
     required init?(coder: NSCoder) {
@@ -51,13 +32,24 @@ final class APODDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemPink
-        view.addSubview(imageView)
-        view.addSubview(titleLabel)
-        view.addSubview(explanationLabel)
-//        view.addSubview(detailView)
+        view.backgroundColor = .systemBackground
+//        title = viewModel.apod.title
+        view.addSubview(detailView)
+        
         addConstraints()
-//        viewModel.fetchAPODInfo()
+//        setupCollectionView()
+//        fetchAPODInfo(url: viewModel.apod.url)
+        detailView.collectionView?.delegate = self
+        detailView.collectionView?.dataSource = self
+    }
+    
+    private func addConstraints() {
+        detailView.snp.makeConstraints { make in
+            make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top)
+            make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom)
+            make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left)
+            make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right)
+        }
     }
     
     func fetchAPODInfo(url: String) {
@@ -70,7 +62,7 @@ final class APODDetailViewController: UIViewController {
                 switch result {
                 case .success(let success):
                     DispatchQueue.main.async {
-                        self.imageView.image = UIImage(data: success)
+//                        self.collectionView.reloadData()
                         print(String(describing: success))
                     }
                 case .failure(let failure):
@@ -79,21 +71,82 @@ final class APODDetailViewController: UIViewController {
             }
         }
     }
+}
+
+extension APODDetailViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        1
+    }
     
-    private func addConstraints() {
-        imageView.snp.makeConstraints { make in
-            make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top)
-            make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).offset(5)
-            make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).offset(5)
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let sectionType = viewModel.sections[indexPath.section]
+        switch sectionType {
+        case .photo(let viewModel):
+            guard let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: APODPhotoCollectionViewCell.cellIdentifier,
+                for: indexPath) as? APODPhotoCollectionViewCell else {
+                fatalError()
+            }
+            cell.configure(with: viewModel)
+            cell.backgroundColor = .systemMint
+            return cell
+        case .title(let viewModel):
+            guard let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: APODTitleExplanationCollectionViewCell.cellIdentifier,
+                for: indexPath) as? APODTitleExplanationCollectionViewCell else {
+                fatalError()
+            }
+            cell.configure(with: viewModel)
+            cell.backgroundColor = .systemBlue
+            return cell
+            //        case .explanation(let viewModel):
+            //            guard let cell = collectionView.dequeueReusableCell(
+            //                withReuseIdentifier: APODExplanationCollectionViewCell.cellIdentifier,
+            //                for: indexPath) as? APODExplanationCollectionViewCell else {
+            //                fatalError()
+            //            }
+            //            cell.configure(with: viewModel)
+            //            cell.backgroundColor = .systemYellow
+            //            return cell
+            //        }
         }
-        titleLabel.snp.makeConstraints { make in
-            make.top.equalTo(imageView.snp.bottom)
-            make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).offset(5)
+        
+        func numberOfSections(in collectionView: UICollectionView) -> Int {
+            return viewModel.sections.count
         }
-        explanationLabel.snp.makeConstraints { make in
-            make.top.equalTo(titleLabel.snp.bottom)
-            make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).offset(5)
-            make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).offset(5)
-        }
+        //
+        //    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        //        return 1
+        //    }
+        //
+        //    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        //        switch indexPath.section {
+        //        case 0:
+        //            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "imageCell", for: indexPath) as! ImageCell
+        //            // Configure image cell with downloaded image
+        //            return cell
+        //        case 1:
+        //            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "titleCell", for: indexPath) as! TitleCell
+        //            // Configure title cell with title text
+        //            return cell
+        //        case 2:
+        //            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "explanationCell", for: indexPath) as! ExplanationCell
+        //            // Configure explanation cell with explanation text
+        //            return cell
+        //        default:
+        //            fatalError("Invalid section")
+        //        }
+        //    }
+        //
+        //    func collectionView(
+        //
+        //_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        //        if indexPath.section == 0 {
+        //            // Return dynamic height for image cell based on content offset
+        //            return CGSize(width: view.frame.width, height: max(200, -collectionView.contentOffset.y))
+        //        } else {
+        //            return CGSize(width: view.frame.width, height: 50)
+        //        }
+        //    }
     }
 }

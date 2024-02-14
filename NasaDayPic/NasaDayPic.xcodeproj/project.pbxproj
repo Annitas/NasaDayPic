@@ -22,12 +22,16 @@
 		759C562C2B77D5CF007C5024 /* APODListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759C562B2B77D5CF007C5024 /* APODListView.swift */; };
 		759C562E2B77EA27007C5024 /* APODCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759C562D2B77EA27007C5024 /* APODCollectionViewCell.swift */; };
 		759C56302B77EBD5007C5024 /* APODCollectionViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759C562F2B77EBD5007C5024 /* APODCollectionViewCellViewModel.swift */; };
-		759C56322B78DE26007C5024 /* GetAllAPODsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759C56312B78DE26007C5024 /* GetAllAPODsResponse.swift */; };
 		759C56342B791A39007C5024 /* APODDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759C56332B791A39007C5024 /* APODDetailViewController.swift */; };
 		759C56362B791AE6007C5024 /* APODDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759C56352B791AE6007C5024 /* APODDetailView.swift */; };
 		759C56382B791B54007C5024 /* APODDetailViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759C56372B791B54007C5024 /* APODDetailViewViewModel.swift */; };
 		759C563A2B7A2213007C5024 /* FooterLoadingCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759C56392B7A2213007C5024 /* FooterLoadingCollectionReusableView.swift */; };
 		759C563C2B7A3ED9007C5024 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759C563B2B7A3ED9007C5024 /* ImageLoader.swift */; };
+		759C56852B7BF15B007C5024 /* APODPhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759C56842B7BF15B007C5024 /* APODPhotoCollectionViewCell.swift */; };
+		759C56872B7BF179007C5024 /* APODTitleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759C56862B7BF179007C5024 /* APODTitleCollectionViewCell.swift */; };
+		759C568C2B7BF24D007C5024 /* APODExplanationCollectionViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759C568B2B7BF24D007C5024 /* APODExplanationCollectionViewCellViewModel.swift */; };
+		759C568E2B7BF264007C5024 /* APODPhotoCollectionViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759C568D2B7BF264007C5024 /* APODPhotoCollectionViewCellViewModel.swift */; };
+		759C56902B7BF280007C5024 /* APODTitleCollectionViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759C568F2B7BF280007C5024 /* APODTitleCollectionViewCellViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,12 +52,16 @@
 		759C562B2B77D5CF007C5024 /* APODListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APODListView.swift; sourceTree = "<group>"; };
 		759C562D2B77EA27007C5024 /* APODCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APODCollectionViewCell.swift; sourceTree = "<group>"; };
 		759C562F2B77EBD5007C5024 /* APODCollectionViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APODCollectionViewCellViewModel.swift; sourceTree = "<group>"; };
-		759C56312B78DE26007C5024 /* GetAllAPODsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAllAPODsResponse.swift; sourceTree = "<group>"; };
 		759C56332B791A39007C5024 /* APODDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APODDetailViewController.swift; sourceTree = "<group>"; };
 		759C56352B791AE6007C5024 /* APODDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APODDetailView.swift; sourceTree = "<group>"; };
 		759C56372B791B54007C5024 /* APODDetailViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APODDetailViewViewModel.swift; sourceTree = "<group>"; };
 		759C56392B7A2213007C5024 /* FooterLoadingCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterLoadingCollectionReusableView.swift; sourceTree = "<group>"; };
 		759C563B2B7A3ED9007C5024 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
+		759C56842B7BF15B007C5024 /* APODPhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APODPhotoCollectionViewCell.swift; sourceTree = "<group>"; };
+		759C56862B7BF179007C5024 /* APODTitleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APODTitleCollectionViewCell.swift; sourceTree = "<group>"; };
+		759C568B2B7BF24D007C5024 /* APODExplanationCollectionViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APODExplanationCollectionViewCellViewModel.swift; sourceTree = "<group>"; };
+		759C568D2B7BF264007C5024 /* APODPhotoCollectionViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APODPhotoCollectionViewCellViewModel.swift; sourceTree = "<group>"; };
+		759C568F2B7BF280007C5024 /* APODTitleCollectionViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APODTitleCollectionViewCellViewModel.swift; sourceTree = "<group>"; };
 		A0ED6D37192B8DC53CF43B5F /* Pods_NasaDayPic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NasaDayPic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5999C2FCE24A091944FB5DA /* Pods-NasaDayPic.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NasaDayPic.release.xcconfig"; path = "Target Support Files/Pods-NasaDayPic/Pods-NasaDayPic.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -115,7 +123,6 @@
 			isa = PBXGroup;
 			children = (
 				759C55BA2B762708007C5024 /* APODModel.swift */,
-				759C56312B78DE26007C5024 /* GetAllAPODsResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -123,9 +130,9 @@
 		759C55B42B76157C007C5024 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				759C56832B7BF129007C5024 /* APODDetails */,
 				759C562B2B77D5CF007C5024 /* APODListView.swift */,
 				759C562D2B77EA27007C5024 /* APODCollectionViewCell.swift */,
-				759C56352B791AE6007C5024 /* APODDetailView.swift */,
 				759C56392B7A2213007C5024 /* FooterLoadingCollectionReusableView.swift */,
 			);
 			path = Views;
@@ -134,9 +141,9 @@
 		759C55B52B761590007C5024 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				759C568A2B7BF1F6007C5024 /* APODDetail */,
 				759C56292B77D33C007C5024 /* APODListViewViewModel.swift */,
 				759C562F2B77EBD5007C5024 /* APODCollectionViewCellViewModel.swift */,
-				759C56372B791B54007C5024 /* APODDetailViewViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -178,6 +185,27 @@
 				759C56332B791A39007C5024 /* APODDetailViewController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		759C56832B7BF129007C5024 /* APODDetails */ = {
+			isa = PBXGroup;
+			children = (
+				759C56352B791AE6007C5024 /* APODDetailView.swift */,
+				759C56842B7BF15B007C5024 /* APODPhotoCollectionViewCell.swift */,
+				759C56862B7BF179007C5024 /* APODTitleCollectionViewCell.swift */,
+			);
+			path = APODDetails;
+			sourceTree = "<group>";
+		};
+		759C568A2B7BF1F6007C5024 /* APODDetail */ = {
+			isa = PBXGroup;
+			children = (
+				759C56372B791B54007C5024 /* APODDetailViewViewModel.swift */,
+				759C568D2B7BF264007C5024 /* APODPhotoCollectionViewCellViewModel.swift */,
+				759C568F2B7BF280007C5024 /* APODTitleCollectionViewCellViewModel.swift */,
+				759C568B2B7BF24D007C5024 /* APODExplanationCollectionViewCellViewModel.swift */,
+			);
+			path = APODDetail;
 			sourceTree = "<group>";
 		};
 		9A37E9FF4CA76DDC4204C8D8 /* Pods */ = {
@@ -309,15 +337,19 @@
 				759C55C12B76336F007C5024 /* Service.swift in Sources */,
 				759C55A42B7613AF007C5024 /* APODViewController.swift in Sources */,
 				759C563A2B7A2213007C5024 /* FooterLoadingCollectionReusableView.swift in Sources */,
+				759C56902B7BF280007C5024 /* APODTitleCollectionViewCellViewModel.swift in Sources */,
 				759C56342B791A39007C5024 /* APODDetailViewController.swift in Sources */,
+				759C56872B7BF179007C5024 /* APODTitleCollectionViewCell.swift in Sources */,
 				759C56382B791B54007C5024 /* APODDetailViewViewModel.swift in Sources */,
 				759C562E2B77EA27007C5024 /* APODCollectionViewCell.swift in Sources */,
 				759C55A02B7613AF007C5024 /* AppDelegate.swift in Sources */,
 				759C56302B77EBD5007C5024 /* APODCollectionViewCellViewModel.swift in Sources */,
 				759C562C2B77D5CF007C5024 /* APODListView.swift in Sources */,
-				759C56322B78DE26007C5024 /* GetAllAPODsResponse.swift in Sources */,
+				759C568E2B7BF264007C5024 /* APODPhotoCollectionViewCellViewModel.swift in Sources */,
 				759C55A22B7613AF007C5024 /* SceneDelegate.swift in Sources */,
 				759C563C2B7A3ED9007C5024 /* ImageLoader.swift in Sources */,
+				759C56852B7BF15B007C5024 /* APODPhotoCollectionViewCell.swift in Sources */,
+				759C568C2B7BF24D007C5024 /* APODExplanationCollectionViewCellViewModel.swift in Sources */,
 				759C55BD2B76272A007C5024 /* TabViewController.swift in Sources */,
 				759C56362B791AE6007C5024 /* APODDetailView.swift in Sources */,
 				759C55BB2B762708007C5024 /* APODModel.swift in Sources */,

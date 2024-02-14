@@ -22,7 +22,9 @@ final class APODCollectionViewCell: UICollectionViewCell {
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.textColor = .label
-        label.font = .systemFont(ofSize: 18, weight: .medium)
+        label.numberOfLines = 0
+        label.textAlignment = .center
+        label.font = .systemFont(ofSize: 15, weight: .semibold)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -46,9 +48,10 @@ final class APODCollectionViewCell: UICollectionViewCell {
     private func addConstraints() {
         titleLabel.snp.makeConstraints({ make in
             make.height.equalTo(50)
-            make.left.equalTo(contentView.snp.left)
-            make.right.equalTo(contentView.snp.right)
-            make.bottom.equalTo(contentView.snp.bottom).offset(-3)
+            make.left.equalTo(contentView.snp.left).offset(3)
+            make.right.equalTo(contentView.snp.right).offset(3)
+            make.centerX.equalToSuperview()
+            make.bottom.equalTo(contentView.snp.bottom).offset(-1)
         })
         imageView.snp.makeConstraints { make in
             make.top.equalTo(contentView.snp.top)

@@ -39,7 +39,7 @@ final class Request {
         if pathComponents.count == 1 {
             string += "&count=20"
         }
-        
+        print(string)
         return string
     }
     
